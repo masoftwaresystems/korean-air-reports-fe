@@ -1,0 +1,131 @@
+@media (max-width: 480px), only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px){
+
+	.form_table, .outside_container {
+		box-sizing:border-box;
+		overflow:visible !important;
+		width:100% !important;
+		padding:1px;
+		border-radius:0px !important;
+	}
+	
+	.order_summary, .scoring_summary {
+		width:90%;
+	}
+
+	.k {
+		float:none !important;
+		margin-left:0 !important;
+	}
+	
+	.k .left_question, .k .left_question_first, .k .right_question {
+		float:none!important;
+		text-align:left;
+		margin-top:0;
+		padding-left:0;
+		padding-right:0;
+		width:auto !important;
+	}
+	
+	.k .right_question {
+		margin-top: .2em;	
+	}
+	
+	.k .top_question, .k .left_question, .k .left_question_first{
+		min-height: 0;
+		margin-bottom: .2em;	
+	}
+	
+	.k .drop_down, .k .text_field, .k .file_upload, .k .signature, .k .signature-clear {
+		box-sizing:border-box;
+		width:100% !important;
+	}
+	
+	.k .inline_answer {
+		float:none;
+	}
+	
+	.k .text_field.calendar_field{
+		width:auto !important;
+	}
+	
+	.k .inline_grid {
+		width:100%;
+	}
+	
+	.k .inline_grid td {
+		display:block;
+		float:left; /* IE fix */
+		clear:both; /* IE fix */
+		padding-left:0 !important;
+		padding-right:0 !important;
+		width:100%;
+	}
+	
+	.k .inline_grid .text_field {
+		display:block;
+		width:100%;
+	}
+	
+	.k .matrix, .k .rating_ranking, .k .text_list {
+		padding-left:0 !important;
+		padding-right:0 !important;
+		width:100%;
+	}
+	
+	.k .rating_ranking td:first-child {
+		width:30%;
+	}
+
+	.k .text_list td:first-child {
+		width:100%;
+	}
+	
+	.k .text_list td img {
+		min-width:16px;
+	}
+	
+	.k .image_list label .image_list_image_choice {
+		padding:6px;
+	}
+	
+	.k .page_header img {
+		float:none !important;
+	}
+	
+	.k img.text_field {
+		height: auto;
+	}
+	
+	.k .saveReturn div{
+		float:none !important;
+		display:block !important;
+		max-width: none;
+		width:100% !important;
+	}
+	.k .saveReturn .sRright{
+		margin-top:10px;
+	}
+	
+	.outside_container .submit_button{
+		width:100% !important;
+		margin-left:0 !important;
+		margin-right:0 !important;
+		float: none !important;
+	}
+
+	.segment_header{
+		width:auto !important;
+	}
+}
+
+@media (max-width: 649px), (device-height: 1024px) and (device-width: 768px) and (orientation: portrait), (device-height: 1024px) and (device-width: 768px) and (orientation: landscape) {
+	.form_table, .outside_container {
+		box-sizing:border-box;
+		overflow:visible !important;
+		width:100% !important;
+		padding:1px;
+		border-radius:0px !important;
+	}
+}

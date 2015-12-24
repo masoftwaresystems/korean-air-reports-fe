@@ -1,0 +1,46 @@
+.plain {
+  font-size:        10pt;
+  font-weight:      normal;
+  font-family:      Arial;
+  background-color: white;
+}
+.mainHead {
+  font-size:        12pt;
+  font-weight:      bold;
+  font-family:      Arial;
+  text-align:       center;
+  background-color: #000080;
+  color:            white;
+}
+.secondHead {
+  font-size:          10pt;
+  font-weight:        bold;
+  font-family:        Arial;
+  text-align:         center;
+  color:              #000040;
+  background-color:   #C0C0C0;
+}
+.thirdHead {
+  font-size:					8pt;
+	font-weight:				normal;
+	font-family:				Arial;
+	text-align:					center;
+	color:							#000040;
+	background-color:		#dcdcdf;
+}
+.info {
+  font-size:          8pt;
+  font-weight:        normal;
+  font-family:        Arial;
+  text-align:         left;
+  vertical-align:     top;
+  padding-top:        5px;
+  padding-left:       10px;
+}
+
+.buttonclass {
+  font-size:10px;
+  width:160px;
+  margin-top:5px;
+  margin-left:0px;
+}

@@ -1,0 +1,52 @@
+
+-       DB name : SOPERAT
+-       ID : hazardaction / PW : actionlog02!
+
+
+DRIVER={SQL Server};SERVER=[yourServername];UID=hazardaction;PWD=actionlog02!;DATABASE=SOPERAT
+
+
+The development server-       IP : 10.1.21.179-       ID : kukfos / PW : kukfos01-       Two directories addressable by the webserver. We created the directories under each of the paths.? 
+
+
+ActionLog(D:\Hazard\Action Log) : http://10.1.21.179:8011/test.html? 
+
+
+SMAL(D:\Hazard\SMAL) : http://www.masoftwaresystems.us/miat//test.html
+
+
+
+sql = "select nvl(max(recid),0) maxid from SRT_Locks"
+set rs = conn_asap.execute(sql)
+if not rs.eof then
+  maxid = rs("maxid")
+end if
+maxid = cint(maxid) +1
+
+
+Hazard ID <%= hazard_id %>
+
+sql = "select hazard_base, hazard_type, hazard_number from EHD_Data where formname = 'iSRT_LogInput' and division = "& sqltext2(viewDivision) &" and divisionalLogNumber = "& sqlnum(log_number) &" and active = 'y'"
+set tmprs=conn_asap.execute(sql)
+if not tmprs.eof then
+  hazard_base = tmprs("hazard_base")
+  hazard_type = tmprs("hazard_type")
+  if(isnull(tmprs("hazard_number"))) then
+    hazard_number = 0
+  else
+    hazard_number = cint(tmprs("hazard_number"))
+  end if
+end if
+
+hazard_number = string(4-len(hazard_number),"0") & hazard_number
+hazard_id = viewDivision &"-"& hazard_base &"-"& hazard_type &"-"& hazard_number
+
+
+
+OraOLEDB 오류 '80040e14' 
+
+ORA-01400: NULL을 ("HAZARDACTION"."EHD_COMMENTS"."COMMENT_EHD") 안에 삽입할 수 없습니다 
+
+/sms_gal3/includes/wrapformdata2.inc, 줄 170 
+
+

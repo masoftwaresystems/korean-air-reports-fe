@@ -1,0 +1,217 @@
+'  sql_select="select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data "
+'  sql_where="where archived = 'n' and active = 'y' "
+'  sql_sort=" order by logNumber desc, recid desc"
+'  ' Get search fields and data and build initial XQuery commands:
+'  element1="formdataXML.exist('/formdata//" &request.querystring("srt_searchfield1")& "[contains(.,"
+'  value1=xdata(request.querystring("srt_searchvalue1"))
+'  element2="formdataXML.exist('/formdata//" &request.querystring("srt_searchfield2")& "[contains(.,"
+'  value2=xdata(request.querystring("srt_searchvalue2"))
+'  element3="formdataXML.exist('/formdata//" &request.querystring("srt_searchfield3")& "[contains(.,"
+'  value3=xdata(request.querystring("srt_searchvalue3"))
+'  ' If the searchfields are risk values, the formdataXML are _not_ the standard values... so make an exception. This may or may not work correctly...
+'  ' Infact, I don't think it does...
+'  if(request.querystring("srt_searchfield1") = "risk_value_mitigation" ) then
+'    element1_post="formdataXML.exist('for $x in /formdata return if(string-length(string($x/risk_value_post_mitigation)) > 0) then 1 else 0') "
+'    'element1_post="formdataXML.exist('/formdata//risk_value_post_mitigation[contains(.,"
+'    sql_risk_where =  sql_where &" and formname = 'risk' and archived = 'n' and active = 'y' and " & element1_post &" =1"
+'    sql_risk = sql_select & sql_risk_where & sql_sort
+'    response.write(sql_risk)
+'    set rs_risk=conn_asap.execute(sql_risk)
+'    set oXML_risk=CreateObject("Microsoft.XMLDOM")
+'    oXML_risk.loadXML(formDataXML)
+'    ' The idea is to get the lognumbers of the entries that meet the search through the risk entry and add to the query for the iSRT_LogInput
+'    log_number1=rs_risk("logNumber")
+'    sql_where = sql_where &" and logNumber = '"& sqlnum(log_number1) &"'"
+'    sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and logNumber = '"& sqlnum(log_number1) &"' order by logNumber desc, recid desc"
+'  end if
+'  ' Same deal for other searchfields
+'  if(request.querystring("srt_searchfield2") = "risk_value_pre_mitigation" or request.querystring("srt_searchfield2") = "risk_value_post_mitigation") then
+'    sql_risk_where =  sql_where &"formname = 'risk' and archived = 'n' and active = 'y' and " & element1 & " """ & value & """)]') =1"
+'    sql_risk = sql_select & sql_risk_where & sql_sort
+'    set rs_risk=conn_asap.execute(sql_risk)
+'    set oXML_risk=CreateObject("Microsoft.XMLDOM")
+'    oXML_risk.loadXML(formDataXML)
+'    log_number2=rs_risk("logNumber")
+'    sql_where = sql_where &" and logNumber = '"& sqlnum(log_number2) &"'"
+'    sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and logNumber = '"& sqlnum(log_number2) &"' order by logNumber desc, recid desc"
+'  end if
+'  if(request.querystring("srt_searchfield3") = "risk_value_pre_mitigation" or request.querystring("srt_searchfield3") = "risk_value_post_mitigation") then
+'    sql_risk_where =  sql_where &"formname = 'risk' and archived = 'n' and active = 'y' and " & element1 & " """ & value & """)]') =1"
+'    sql_risk = sql_select & sql_risk_where & sql_sort
+'    set rs_risk=conn_asap.execute(sql_risk)
+'    set oXML_risk=CreateObject("Microsoft.XMLDOM")
+'    oXML_risk.loadXML(formDataXML)
+'    log_number1=rs_risk("logNumber")
+'    sql_where = sql_where &" and logNumber = '"& sqlnum(log_number3) &"'"
+'    sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and logNumber = '"& sqlnum(log_number3) &"' order by logNumber desc, recid desc"
+'  end if
+'
+'  if(request.querystring("srt_searchfield1") = "date_opened") then
+'    element1="formdataXML.exist('/formdata["& request.querystring("srt_searchfield1") &" >= """&request.querystring("srt_searchvalue1") &"""]')"
+'    sql_where = sql_where &" and "& element1 &" =1"
+'    ' sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and " & element1 & " =1 order by logNumber desc, recid desc"
+'  elseif(request.querystring("srt_searchfield1") <> "") then
+'    sql_where = sql_where &" and "& element1 &" """& value1 &""")]') =1"
+'  end if
+'  if(request.querystring("srt_searchfield2") = "date_opened") then
+'    element2=" and formdataXML.exist('/formdata["& request.querystring("srt_searchfield2") &" >= """&request.querystring("srt_searchvalue2") &"""]')"
+'    sql_where = sql_where & element2 &" =1"
+'    ' sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and " & element1 & " =1 order by logNumber desc, recid desc"
+'  elseif(request.querystring("srt_searchfield2") <> "") then
+'    if(request.querystring("srt_boolean2") = "And") then
+'      sql_where = sql_where &" and "& element2 &" """& value2 &""")]') =1"
+'    elseif(request.querystring("srt_boolean2") = "Or") then
+'      sql_where = sql_where &" or "& element2 &" """& value2 &""")]') =1 and archived = 'n' and active = 'y' "
+'    end if
+'  end if
+'  if(request.querystring("srt_searchfield3") = "date_opened") then
+'    element3=" and formdataXML.exist('/formdata["& request.querystring("srt_searchfield3") &" >= """&request.querystring("srt_searchvalue3") &"""]')"
+'    sql_where = sql_where & element3 &" =1"
+'    sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and " & element1 & " =1 order by logNumber desc, recid desc"
+'  elseif(request.querystring("srt_searchfield3") <> "") then
+'    if(request.querystring("srt_boolean3") = "And") then
+'      sql_where = sql_where &" and "& element3 &" """& value3 &""")]') =1"
+'    elseif(request.querystring("srt_boolean3") = "Or") then
+'      sql_where = sql_where &" or "& element3 &" """& value3 &""")]') =1 and archived = 'n' and active = 'y' "
+'    end if
+'  end if
+'  ' sql_where = sql_where &" and archived = 'n' and active = 'y' "
+'  if(sql = "") then
+'    'sql = "select logNumber, division, recid, loginID, createDate, formdataXML from SRT_Data where formname = 'iSRT_LogInput' and archived = 'n' and active = 'y' and " & element1 & " """ & value1 & """)]') =1 order by logNumber desc, recid desc"
+'    sql = sql_select & sql_where & sql_sort
+'  end if
+'  'response.write(sql)
+'  set results=conn_asap.execute(sql)
+'%>
+'<html>
+'  <head>
+'    <script type="text/javascript">
+'      function setRowColor(row, color) {
+'        cells = row.getElementsByTagName('td');
+'        for(a=0; a < 11; a++) {
+'          // alert(color);
+'          cells[a].setAttribute('bgcolor', color, 0);
+'        }
+'      }
+'    </script>
+'  </head>
+'  <body>
+'    <table>
+'      <tbody>
+'        <tr><td style="FONT-WEIGHT: bold; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;font-size:8pt;">Log Number</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;">Description</span>     
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  vAlign="top" rowSpan="1" align="center">
+'        <span style="font-weight:bold;">&nbsp;</span>     
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  vAlign="top" rowSpan="1" align="center">
+'        <span style="font-weight:bold;">Accountable Leader</span>     
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center"  vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;">&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">Division</span>   
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">Date Opened</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">Date Due</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">Days</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">Status</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;">&nbsp;</span>
+'        </td>
+'        </tr>
+'      <%
+'        set oXML=CreateObject("Microsoft.XMLDOM")
+'        oXML.async=false
+'        do while not results.eof
+'
+'          loginID=results("loginID")
+'          createDate=results("createDate")
+'          formDataXML=results("formDataXML")
+'          recid=results("recid")
+'          division=results("division")
+'          
+'          oXML.loadXML(formDataXML)
+'          
+'          safety_action_cnt=selectNode(oXML,"safety_action_cnt","")
+'          log_number=selectNode(oXML,"log_number","")
+'          item_description=rev_xdata2(selectNode(oXML,"item_description",""))
+'          accountable_leader=rev_xdata2(selectNode(oXML,"accountable_leader",""))
+'          source=rev_xdata2(selectNode(oXML,"source",""))
+'          date_opened=selectNode(oXML,"date_opened","")
+'          date_due=selectNode(oXML,"date_due","")
+'          date_completed=selectNode(oXML,"date_completed","")
+'          item_status=selectNode(oXML,"item_status","")
+'          
+'          item_description=replace(item_description,vbcrlf,"<br>")
+'          
+'          tmpCnt=cint(safety_action_cnt)
+'          ' the following table shamelessly cut and paste from adminDisplay.asp:
+'      %>
+'        <tr onclick="<%= clickloc %>"  onmouseover="setRowColor(this, '#FFFFE7');this.style.cursor='hand';" onmouseout="setRowColor(this, 'white')"><td style="FONT-WEIGHT: bold; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;font-size:14px;"><%= log_number %>&nbsp;</span>
+'        <!-- <br /><input  type="button" value="Update" style="font-size:10px;background-color:white;width:50px;margin-top:5px;margin-left:10px;" onclick="document.location='iSRT_LogInput.asp?recid=<%= recid %>'" /> -->
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;"><%= item_description %>&nbsp;</span>     
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  vAlign="top" rowSpan="1" align="center">
+'        <span style="font-weight:bold;"><%= divisionStr %></span>     
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= accountable_leader %>&nbsp;</span>   
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= curr_risk %>&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= source %>&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1"  align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= date_opened %>&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= date_due %>&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <span style="font-weight:bold;"><%= date_completed %>&nbsp;</span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center" vAlign="top" rowSpan="1"> 
+'        <%
+'        if(date_completed = "") then
+'          d2 = date
+'        else
+'          d2 = date_completed
+'        end if
+'        %>
+'        <span style="font-weight:bold;"><% if(len(date_opened) > 0) then %><%= datediff("d",date_opened,d2) %><% end if %></span>
+'        </td>
+'        <td style="FONT-WEIGHT: normal; FONT-SIZE: 8pt;  FONT-STYLE: normal; FONT-FAMILY: Arial" bgColor="#ffffff" selected="false" colSpan="1" align="center"  vAlign="top" rowSpan="1">
+'        <span style="font-weight:bold;"><%= item_status %>&nbsp;</span>
+'        </td>
+'        </tr>
+'      <%
+'          ' what an interesting way to increment a loop...
+'          results.MoveNext
+'        loop
+'      %>
+'      </tbody>
+'    </table>
+'  </body>
+'</html>
+

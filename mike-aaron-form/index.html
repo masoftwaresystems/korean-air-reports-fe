@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Mike Aaron's form</title>
+  <meta name="description" content="Mike Aaron's Form">
+  <meta name="author" content="Mike Aaron">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="https://www.koreanair.com/favicon.ico">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<div class="container">
+    	<div class="row">
+        	<div class="twelve columns" id="header"><img src="https://www.koreanair.com/content/dam/koreanair/Global/photos/top-nav-logo.png" /></div>
+            </div>
+  		
+    	<div class="row">
+   			<div class="twelve columns"><h4>Hazard Report</h4><h6>Note: All items with a red asterisk <span id="required">(*)</span> are required.</h6></div>
+   		</div>
+    	<div class="row">
+    		<div class="four columns"><strong>Control Number:</strong> Please save</div>
+    		<div class="eight columns"><strong>Created By:</strong> (WONG SEUNG YON) on 2015.8.28</div>
+    	</div>
+        	<form>
+  				<div class="row">
+    				<div class="twelve columns">
+            <label for="lastComment">Last Comment</label>
+            
+  			<textarea class="u-full-width" id="exampleMessage"></textarea>
+            <label for="lastComment"><a href="#">Report Links</a></label>
+			<label for="submitterInformation" id="submitter">Submitter Information</label> 
+ 					</div>
+ 				</div>
+		<div class="row">
+  			<div class="three columns">
+      		<label for="Name">1. Name</label>
+      		<select id="NameValue">
+        	<option value="Option 1">Name 1</option>
+        	<option value="Option 2">Name 2</option>
+        	<option value="Option 3">Name 3</option>
+      		</select>
+    		</div>
+    		<div class="three columns">
+      	<label for="Division">2. Division</label>
+      	<select id="DivisionValue">
+        <option value="Option 1">Division 1</option>
+        <option value="Option 2">Division 2</option>
+        <option value="Option 3">Division 3</option>
+      	</select>
+    		</div>
+    		<div class="three columns">
+      	<label for="Department">3. Department</label>
+  		<textarea class="u-full-width" id="department"></textarea>
+			</div>
+     		<div class="three columns">
+      	<label for="phone">4. Tel</label>
+  		<textarea class="u-full-width" id="tel"></textarea>
+			</div>
+    	<label for="hazard" id="hazard">Hazard Description</label> 
+<label for="fields">5. Fields</label> 
+        
+    	</div>
+    
+    <div class="row">
+    	<div class="twelve columns">
+        
+    	  	<label class="checkbox">
+        	<input type="checkbox">
+    			<span class="label-body"><span id="required">* </span>Flight Operation</span>
+        	</label>
+    		<label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Maintenance</span>
+            </label>
+			<label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Cable</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Pax</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Cargo</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Catering</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Aerospace</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">KAS</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Airport Authority</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">OCC</span>
+            </label>
+            <label class="checkbox">
+        	<input type="checkbox">
+            	<span class="label-body">Others</span>
+            </label>
+    </div>
+   </div>
+    
+    
+    <div class="row">
+  		<div class="three columns">
+      	<label for="Name2">6. Date of Occurence</label>
+      	<select id="Name2input">
+        <option value="Option 1">Name 1</option>
+        <option value="Option 2">Name 2</option>
+        <option value="Option 3">Name 3</option>
+      	</select>
+    	</div>
+    
+    	<div class="three columns">
+    	<label for="Department">7. Place</label>
+  		<textarea class="u-full-width" id="DepartmentInput"></textarea>
+		</div>
+    	<div class="six columns">
+    	<label for="Division2">8. Related Department</label>
+    	<select id="DivisionInput2">
+    	<option value="Option 1">Division 1</option>
+    	<option value="Option 2">Division 2</option>
+        <option value="Option 3">Division 3</option>
+      	</select>
+    	</div>
+   	</div>
+    
+    <div class="row">
+    	<div class="twelve columns">
+        <label for="Subject"><span id="required">* </span>Subject</label>
+  		<textarea class="u-full-width" id="Subject"></textarea>
+	</div>
+    
+    <div class="row">
+    	<div class="twelve columns">
+        <label for="Description"><span id="required">* </span>Description</label>
+  		<textarea class="u-full-width" id="Description"></textarea>
+	</div>
+    	<input class="button-primary" value="Submit" type="submit" id="submit-btn">
+    	</form>
+    </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

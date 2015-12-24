@@ -1,0 +1,23 @@
+Fred/Lenora,
+
+I can give to you some of the functionality required so that we can use the API cost/time estimate as a baseline to extrapulate what could possibly be the cost/time for a complete set of APIs.
+
+Here are some of the necessary API calls:
+
+- Get/Put/Delete account information.  This would pull back the information about an account, and update/create/delete same.
+- Get/Put/Delete account relationships.  This would bring back any and all relationships for an account, and update/create/delete same.
+- Get/Put/Delete meeting information.  Same as above.
+- Get/Put/Delete contact (phone, email,etc) information.
+- Get/Put/Delete lead/bulletin information.
+- Get/Put/Delete project information.
+- Get/Put/Delete project contact information.
+- Get/Put/Delete documents.
+- Get/Put/Delete on a variety of tables associated with a bulletin response.
+- Adhoc query API.  This would be the ability to run a custom query and have the results returneed in an agreed-upon parseable format.
+
+
+Let's start with these, if we could.  This should give to us a good idea of how much effort would be involved, both cost-wise and time-wise.
+
+Thanks!
+
+\mike

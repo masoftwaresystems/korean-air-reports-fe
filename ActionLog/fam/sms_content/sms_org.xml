@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization title="Safety Management System">
+	<item url="title.swf" controlSet="start"><![CDATA[]]></item>
+	<item url="sms_01.swf" controlSet="linear"><![CDATA[Delta Safety Policy]]></item>
+	<item url="sms_02.swf" controlSet="linear"><![CDATA[Global Trend]]></item>
+	<item url="sms_03.swf" controlSet="linear"><![CDATA[What is SMS?]]></item>
+	<item url="dp_01.swf" controlSet="linear"><![CDATA[Company-wide Initiative]]></item>
+	<item url="dp_02.swf" controlSet="linear"><![CDATA[Operational Divisions]]></item>
+	<item url="ih_01.swf" controlSet="linear"><![CDATA[Hazard Identification]]></item>
+	<item url="ih_02.swf" controlSet="linear"><![CDATA[Voluntary Reporting Programs]]></item>
+	<item url="ph_01.swf" controlSet="linear"><![CDATA[Processing Hazards]]></item>
+	<item url="srm_01.swf" controlSet="linear"><![CDATA[Safety Risk Management]]></item>
+	<item url="com_01.swf" controlSet="linear"><![CDATA[Communication]]></item>
+	<item url="end_01.swf" controlSet="linear"><![CDATA[Conclusion]]></item>
+</organization>

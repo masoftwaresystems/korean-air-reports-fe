@@ -1,0 +1,47 @@
+@charset "utf-8";
+/************************/
+/*****Basic Elements*****/
+/************************/
+
+/* Did not update relative paths with Velocity code. Image paths seem to be in a comment field and is missing something. */
+/*
+
+PNG Background Example
+
+background:url('../images/hr_crest.png') no-repeat left top;
+_background-image: none;
+_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src="/CMSTemplates/TVC/images/hr_crest.png", sizingMethod="scale");
+
+
+*/
+
+
+/*************************/
+/*****Generic Classes*****/
+/*************************/
+
+/**********************/
+/*****Basic Layout*****/
+/**********************/
+
+/****************/
+/*****Header*****/
+/****************/
+
+ul#mainNavigation > li {
+    z-index:2000;
+    position:relative;
+}
+
+/*****************/
+/*****Content*****/
+/*****************/
+
+/****************/
+/*****Footer*****/
+/****************/
+
+/*************/
+/*****Etc*****/
+/*************/
+

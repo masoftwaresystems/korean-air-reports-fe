@@ -1,0 +1,81 @@
+@charset "utf-8";
+/************************/
+/*****Basic Elements*****/
+/************************/
+
+/*************************/
+/*****Generic Classes*****/
+/*************************/
+
+/**********************/
+/*****Basic Layout*****/
+/**********************/
+
+/****************/
+/*****Header*****/
+/****************/
+
+ul#mainNavigation, ul#mainNavigation li .dropdown {
+    z-index:2000;
+}
+
+#mainImageSlider {
+    position:relative;
+    z-index:1;
+}
+
+ul#mainNavigation li .dropdown div.column {
+    display:inline;
+    width:255px;
+}
+
+ul#mainNavigation li .dropdown div.column:after {
+    width:0;
+    background:none;
+    border:0;
+}
+
+div.selector {
+    background:url('http://media.sanfrancisco.travel/designimages/select_bg.gif') no-repeat top left inherit;
+    height:30px;
+    width:226px;
+    margin-bottom:10px;
+    padding-left:33px;
+}
+
+/*****************/
+/*****Content*****/
+/*****************/
+
+#siteSearch input[type="text"] {
+    border:0;
+    background:url('http://media.sanfrancisco.travel/designimages/input_mainSearch.gif') no-repeat left top;
+    width:301px;
+    padding:10px 0 10px 40px;
+    font-family:Georgia, Times, Serif;
+    font-style:italic;
+    font-size:11px;
+    color:#666666;
+}
+
+/****************/
+/*****Footer*****/
+/****************/
+
+/*************/
+/*****Etc*****/
+/*************/
+
+
+span.btnWrap.blue input {
+    position:relative;
+    top:0px;
+    height:30px;
+}
+
+
+span.btnWrap.blue.thin input {
+    position:relative;
+    top:0px;
+    height:21px;
+}

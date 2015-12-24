@@ -1,0 +1,57 @@
+1. On the "Safety Hotline," please change "Contact Information" to "Contact Information (Optional)"
+Done.
+2. Is it possible for you to indicate the source of the "Safety Hotline" in the database (i.e., Bristow 
+Employee Main, Bristow Employee Ground, Customer)?
+Done. (Russell: I've added "source" as an argument when the page is called up)
+3. Need space to enter information for "Update" link on "Safety Team" page.
+Mike: can you humor me on this one, and send to me the first set of information for this page?
+4. I don't think the "Bases" link is pointing to the most recent version of the Flash animation.
+Fixed.
+5. Please change the intro text for each Action Log to:
+ - Work with the BA action log.
+ - Work with the EH action log.
+ - Work with the WH action log.
+Done.
+6. Remove "Request New Login" button from Action Log log-in pages.
+Done.
+7. Provide me with a method to edit "Accountable Leader" fields.
+These are actually logins that are associated with BUs.  You can add by creating new logins.  Or you could do what that other company did, and send me an initial list to load users.
+8. "Quick Search" button covers some of the menus.
+I don't see this at all.  Can you send to me a screen shot?  Thanks!
+9. Top bar of Menu on the list of active Action Log items does not align and seems disjointed (bars overlaying bars).
+Fixed.
+10. "Window" for Action Log RAM is too small for graphic.
+This seems to be fixed for me now.  Please check on your computer..!
+11. Remove "Contributing Factors" from list on "Risk Assessment Summary" page.
+Done.
+12. Remove "Link This Item" button from the list of options at the bottom of all event description pages.
+Done.
+13. Remove the "Division(s)" option from the "Escalate to D-SAG" page.
+Done.
+14. Change "Cross-div. Nbr" to "Divisional"
+Done.
+15. "Save" button on Log Number page sends me to a broken link.
+Fixed.
+16. "Upload Attachment" button on "Add Attachment" page sends me to a broken link.
+Have to get with Francis on this one. My permissions won't allow me to fix this one without his assistance.
+17. "Email This Item" function does not appear to work.
+Fixed.
+18. Remove "Return to Log Input" and "Return to Action Log" buttons on email page.
+Done.
+19. Remove the "(s)" from "Divisional Number(s)" on the "Log Summary" page.
+Done.
+20. Remove the "Related Log Numbers" item from the "Log Summary" page.
+Done.
+21. The "Assess Risk" button on the "Stage Input" page points to an old RAM.
+Removed.
+22. Staging Area appears to be broken.
+Removed.
+23. Print options appear to revert to Divisional SAG page.
+I don't see this behavior.
+24. Still have the same issue with the font when viewing on a mac. I think this can easily be corrected if you indicate in which font to use for each type of browser.
+I'll see if I can get this one going later today. 
+
+25. I found one additional item that has resulted from the new RAM. It
+appears as though the "Reputation" column is not being recalled when the
+page is viewed during a later session.
+Will fix this today!

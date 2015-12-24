@@ -1,0 +1,278 @@
+// vim:set syn=dot foldmethod=marker:
+digraph G {
+    index [label="index.asp"];
+    index -> validateLogin;
+    index -> requestLogin;
+
+    validateLogin [label="validateLogin.asp"];
+    validateLogin -> updateProfile;
+    validateLogin -> splash;
+    validateLogin -> changePassword;
+    validateLogin -> index;
+
+    requestLogin [label="requestLogin.asp"];
+    requestLogin -> do_loginRequest;
+
+    do_loginRequest [label="do_loginRequest.asp"];
+    do_loginRequest -> requestLogin_thanks;
+
+    requestLogin_thanks [label="requestLogin_thanks.asp"];
+    requestLogin_thanks -> do_loginRequest;
+
+    updateProfile [label="updateProfile.asp"];
+    updateProfile -> do_updateProfile;
+
+    do_updateProfile [label="do_updateProfile.asp"];
+    do_updateProfile -> updateProfile;
+
+    changePassword [label="changePassword.asp"];
+    changePassword -> do_changePassword;
+
+    do_changePassword [label="do_changePassword.asp"];
+    do_changePassword -> splash;
+
+    splash [label="splash.asp"];
+    splash -> inc_sms_header;
+
+    inc_sms_header [label="include/sms_header.inc"];
+    inc_sms_header -> inc_sms_menu;
+    inc_sms_header -> inc_sms_search;
+
+    inc_sms_menu [label="include/sms_menu.inc"];
+    inc_sms_menu -> admin_LogDisplay;
+    inc_sms_menu -> divisional_LogDisplay;
+    inc_sms_menu -> admin_LogReport;
+    inc_sms_menu -> divisional_LogReport;
+    inc_sms_menu -> admin_LogInput;
+    inc_sms_menu -> divisional_LogInput;
+    inc_sms_menu -> admin_StageInput;
+    inc_sms_menu -> admin_StageList;
+    inc_sms_menu -> divisional_StageInput;
+    inc_sms_menu -> divisional_StageList;
+
+    inc_sms_search [label="include/sms_search.inc"];
+    inc_sms_search -> admin_LogDisplay;
+
+    admin_LogDisplay [label="admin_LogDisplay.asp"];
+    admin_LogDisplay -> inc_sms_header;
+    admin_LogDisplay -> admin_LogDisplay;
+    admin_LogDisplay -> admin_LogInput;
+
+    divisional_LogDisplay [label="divisional_LogDisplay.asp"];
+    divisional_LogDisplay -> inc_sms_header;
+    divisional_LogDisplay -> divisional_LogDisplay;
+    divisional_LogDisplay -> divisional_LogInput;
+
+    admin_LogReport [label="admin_LogReport.asp"];
+    admin_LogReport -> inc_sms_header;
+    admin_LogReport -> admin_LogReport;
+    admin_LogReport -> admin_LogInput;
+
+    divisional_LogReport [label="divisional_LogReport.asp"];
+    divisional_LogReport -> inc_sms_header;
+    divisional_LogReport -> divisional_LogReport;
+    divisional_LogReport -> divisional_LogInput;
+
+    admin_LogInput [label="admin_LogInput.asp"];
+    admin_LogInput -> inc_sms_header;
+    admin_LogInput -> admin_LogDisplay;
+    admin_LogInput -> admin_saveData3;
+    admin_LogInput -> divisional_LogInput;
+    admin_LogInput -> iSRT_LogInput; // hmmmm
+    admin_LogInput -> retrieveFile3;
+    admin_LogInput -> divisional_logPicture;
+
+    divisional_LogInput [label="divisional_LogInput.asp"];
+    divisional_LogInput -> inc_sms_header;
+    divisional_LogInput -> divisional_saveData3;
+    divisional_LogInput -> divisional_LogDisplay;
+    divisional_LogInput -> divisional_LogInput;
+    divisional_LogInput -> retrieveFile3;
+    divisional_LogInput -> requestPromotionToSRT;
+    divisional_LogInput -> requestDemotionFromSRT;
+    divisional_LogInput -> promoteToiSRT;
+    divisional_LogInput -> demoteFromiSRT;
+
+    admin_StageInput [label="admin_StageInput.asp"];
+    admin_StageInput -> inc_sms_header;
+    admin_StageInput -> admin_saveStageData;
+    admin_StageInput -> admin_LogDisplay;
+    admin_StageInput -> divisional_LogInput;
+    admin_StageInput -> retrieveFile3;
+    admin_StageInput -> admin_StageList;
+    admin_StageInput -> requestPromotionToDivisional; // NOTE: sms_stage2 hardcoded!
+    admin_StageInput -> divisional_StageList;
+    admin_StageInput -> requestDemotionFromSRT;
+    admin_StageInput -> divisional_LogDisplay;
+    admin_StageInput -> promoteStageToiSRT;
+    admin_StageInput -> demoteFromiSRT;
+    admin_StageInput -> admin_stagevisual;
+    admin_StageInput -> admin_emailInfo;
+    admin_StageInput -> admin_LogInput;
+    admin_StageInput -> admin_Attachments;
+    admin_StageInput -> admin_submitRiskanalysis;
+    admin_StageInput -> admin_deleteLogNumber;
+
+    admin_StageList [label="admin_StageList.asp"];
+    admin_StageList -> inc_sms_header;
+    admin_StageList -> admin_LogDisplay;
+    admin_StageList -> admin_StageInput;
+
+    divisional_StageInput [label="divisional_StageInput.asp"];
+    divisional_StageInput -> inc_sms_header;
+    divisional_StageInput -> divisional_saveStageData;
+    divisional_StageInput -> divisional_StageList;
+    divisional_StageInput -> divisional_LogInput;
+    divisional_StageInput -> retrieveFile3;
+    divisional_StageInput -> requestPromotionToDivisional; // NOTE: sms_stage2 hardcoded!
+    divisional_StageInput -> requestDemotionFromSRT;
+    divisional_StageInput -> divisional_LogDisplay;
+    divisional_StageInput -> promoteToDivisional;
+    divisional_StageInput -> demoteFromiSRT;
+    divisional_StageInput -> divisional_stagevisual;
+    divisional_StageInput -> divisional_emailInfo;
+    divisional_StageInput -> divisional_Attachments;
+    divisional_StageInput -> divisional_submitRiskanalysis;
+    divisional_StageInput -> divisional_deleteLogNumber;
+
+    divisional_StageList [label="divisional_StageList.asp"];
+    divisional_StageList -> inc_sms_header;
+    divisional_StageList -> divisional_LogDisplay;
+    divisional_StageList -> divisional_StageInput;
+
+    admin_stagevisual [label="admin_stagevisual.asp"];
+    admin_stagevisual -> inc_sms_header;
+    admin_stagevisual -> admin_submitStageRiskanalysis;
+    admin_stagevisual -> admin_LogInput;
+    admin_stagevisual -> admin_LogDisplay;
+
+    admin_emailInfo [label="admin_emailInfo.asp"];
+    admin_emailInfo -> inc_sms_header;
+    admin_emailInfo -> admin_doEmail;
+    admin_emailInfo -> retrieveFile; // Note: NOT retrieveFile3
+    admin_emailInfo -> admin_LogInput;
+    admin_emailInfo -> admin_LogDisplay;
+
+    admin_Attachments [label="admin_Attachments.asp"];
+    admin_Attachments -> inc_sms_header;
+    admin_Attachments -> admin_saveFile2;
+    admin_Attachments -> admin_deleteFile;
+    admin_Attachments -> retrieveFile3;
+    admin_Attachments -> admin_LogInput;
+    admin_Attachments -> admin_LogDisplay;
+
+    admin_submitRiskanalysis [label="admin_submitRiskanalysis.asp"]; // NOTE: no inc_sms_header, still has banner and profile header
+    admin_submitRiskanalysis -> admin_LogInput;
+    admin_submitRiskanalysis -> admin_LogDisplay;
+
+    admin_deleteLogNumber [label="admin_deleteLogNumber.asp"];
+    admin_deleteLogNumber -> admin_LogDisplay;
+
+    admin_saveStageData [label="admin_saveStageData.asp"];
+
+    promoteStageToiSRT [label="promoteStageToiSRT.asp"];
+    promoteStageToiSRT -> admin_LogDisplay;
+
+    admin_submitStageRiskanalysis [label="admin_submitStageRiskanalysis.asp"];
+    admin_submitStageRiskanalysis -> inc_sms_header;
+    admin_submitStageRiskanalysis -> splash;
+    admin_submitStageRiskanalysis -> admin_StageList;
+    admin_submitStageRiskanalysis -> admin_LogDisplay;
+
+    retrieveFile [label="retrieveFile.asp"];
+
+    admin_doEmail [label="admin_doEmail.asp"];
+    admin_doEmail -> inc_sms_header;
+    admin_doEmail -> doEmail;
+    admin_doEmail -> admin_LogInput;
+    admin_doEmail -> admin_LogDisplay;
+
+    admin_saveFile2 [label="admin_saveFile2.asp"];
+    admin_saveFile2 -> admin_Attachments;
+
+    admin_deleteFile [label="admin_deleteFile.asp"];
+    admin_deleteFile -> admin_Attachments;
+
+    divisional_deleteLogNumber [label="divisional_deleteLogNumber.asp"];
+    divisional_deleteLogNumber -> divisional_LogDisplay;
+
+    divisional_saveStageData [label="divisional_saveStageData.asp"];
+
+    promoteToDivisional [label="promoteToDivisional.asp"];
+    promoteToDivisional -> divisional_LogDisplay;
+
+    divisional_stagevisual [label="divisional_stagevisual.asp"];
+    divisional_stagevisual -> inc_sms_header;
+    divisional_stagevisual -> divisional_submitStageRiskanalysis;
+    divisional_stagevisual -> divisional_StageInput;
+    divisional_stagevisual -> divisional_StageList;
+
+    divisional_emailInfo [label="divisional_emailInfo.asp"];
+    divisional_emailInfo -> inc_sms_header;
+    divisional_emailInfo -> divisional_doEmail;
+    divisional_emailInfo -> retrieveFile; // NOTE: NOT retrieveFile3
+    divisional_emailInfo -> divisional_LogInput;
+    divisional_emailInfo -> divisional_LogDisplay;
+
+    divisional_Attachments [label="divisional_Attachments.asp"];
+    divisional_Attachments -> inc_sms_header;
+    divisional_Attachments -> divisional_saveFile2;
+    divisional_Attachments -> divisional_deleteFile;
+    divisional_Attachments -> retrieveFile3;
+    divisional_Attachments -> divisional_LogInput;
+    divisional_Attachments -> divisional_LogDisplay
+
+    divisional_submitRiskanalysis [label="divisional_submitRiskanalysis.asp"];
+    divisional_submitRiskanalysis -> inc_sms_header;
+    divisional_submitRiskanalysis -> divisional_LogInput;
+    divisional_submitRiskanalysis -> divisional_LogDisplay;
+
+    divisional_deleteFile [label="divisional_deleteFile.asp"];
+    divisional_deleteFile -> divisional_Attachments;
+
+    divisional_saveFile2 [label="divisional_saveFile2.asp"];
+    divisional_saveFile2 -> divisional_Attachments;
+
+    divisional_doEmail [label="divisional_doEmail.asp"];
+    divisional_doEmail -> inc_sms_header;
+    divisional_doEmail -> doEmail;
+    divisional_doEmail -> divisional_LogInput;
+    divisional_doEmail -> divisional_LogDisplay;
+
+    requestPromotionToSRT [label="requestPromotionToSRT.asp"];
+
+    promoteToiSRT [label="promoteToiSRT.asp"];
+    promoteToiSRT -> admin_LogDisplay;
+    promoteToiSRT -> admin_LogInput;
+
+    divisional_saveData3 [label="divisional_saveData3.asp"];
+
+    requestDemotionFromSRT [label="requestDemotionFromSRT.asp"];
+
+    demoteFromiSRT [label="demoteFromiSRT.asp"];
+    demoteFromiSRT -> divisional_LogInput;
+
+    requestPromotionToDivisional [label="requestPromotionToDivisional.asp"];
+
+    retrieveFile3 [label="retrieveFile3.asp"];
+    retrieveFile3 -> retrieveFile3;
+
+    doEmail [label="doEmail.asp"];
+    doEmail -> inc_sms_header;
+    doEmail -> doEmail
+
+    divisional_logPicture [label="divisional_logPicture.asp"];
+    divisional_logPicture -> inc_sms_header;
+    divisional_logPicture -> admin_LogInput;
+    divisional_logPicture -> divisional_LogInput;
+    divisional_logPicture -> retrieveFile3;
+    divisional_logPicture -> divisional_LogDisplay;
+
+    admin_saveData3 [label="admin_saveData3.asp"];
+
+    divisional_submitStageRiskanalysis [label="divisional_submitStageRiskanalysis.asp"];
+    divisional_submitStageRiskanalysis -> inc_sms_header;
+    divisional_submitStageRiskanalysis -> splash;
+    divisional_submitStageRiskanalysis -> divisional_LogDisplay;
+    divisional_submitStageRiskanalysis -> divisional_StageList;
+}

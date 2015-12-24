@@ -1,0 +1,26 @@
+<formdata>
+    <formname>iSRT_LogInput</formname>
+    <safety_action_cnt>2</safety_action_cnt>
+    <resultPage>adminDisplay.asp</resultPage>
+    <log_number>00003</log_number>
+    <item_description>Procedural errors during ground operations (as indicated by ASAP reports).</item_description>
+    <division>Flight Ops</division>
+    <accountable_leader>G. Pheasant S. Dickson</accountable_leader>
+    <source>SRT 1</source>
+    <date_opened>08/16/2005</date_opened>
+    <date_due>10/28/2005</date_due>
+    <date_completed>10/28/2005</date_completed>
+    <item_status>Closed</item_status>
+    <safety_action_nbr_1>00003.1</safety_action_nbr_1>
+    <safety_action_1>Action: Emphasis item for all I/Es - particularly during LOEs.</safety_action_1>
+    <safety_action_poc_1>G. Pheasant</safety_action_poc_1>
+    <safety_action_open_1>10/28/2005</safety_action_open_1>
+    <safety_action_completed_1>10/28/2005</safety_action_completed_1>
+    <safety_action_status_1>Closed</safety_action_status_1>
+    <safety_action_nbr_2>00003.2</safety_action_nbr_2>
+    <safety_action_2>Action: Increased emphasis by LCPs on gear pin removal and tail number verification: pilot wrote article for Standards newsletter.</safety_action_2>
+    <safety_action_poc_2>S. Dickson</safety_action_poc_2>
+    <safety_action_open_2>10/28/2005</safety_action_open_2>
+    <safety_action_completed_2>10/28/2005</safety_action_completed_2>
+    <safety_action_status_2>Closed</safety_action_status_2>
+</formdata>

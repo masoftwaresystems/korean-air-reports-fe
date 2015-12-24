@@ -1,0 +1,195 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {height:100%; background:#002b4f;}
+
+body {
+	color:black;	
+	font:11px Verdana, Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	padding-top: 15px;
+	min-height:100%;
+	min-width:930px;
+	position:relative;
+	behavior: url(/csshover.htc);
+
+}
+img, div { behavior: url(/iepngfix.htc); 
+}
+
+/* Common Parts */
+
+a {text-decoration:underline; color:#333;}
+a:hover {text-decoration:none;}
+p {margin:0 0 15px;}
+img {border:none;}
+br.clear {clear:both;}
+
+/* page styles */
+#page-box-home {
+	width:930px;
+	min-height: 814px;
+	min-height: 814px !important;
+	margin:0 auto;
+	background:#fff url("../images/bg-home.jpg") no-repeat;
+	overflow:hidden;
+}
+#page-box {
+	width:930px;
+	margin:0 auto;
+	background:#fff url("../images/header-content.jpg") no-repeat;
+	overflow:hidden;
+}
+#logo	{
+	float: left;
+	margin: 48px 0 0 59px;
+}
+#topNav	{
+	float: right;
+	/* margin: 28px 194px 0 0; */
+	margin: 28px 365px 0 0;
+	display: inline-block:
+	width: 411px;
+}
+#mainContent	{
+	padding-top: 55px;
+	color: #002b4f;
+}
+#left-column	{
+	float: left;
+	width: 250px;
+	margin-left: 15px;
+}
+#pageTitle	{
+	font-size: 18px;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+#right-column	{
+	float: left;
+	margin-left: 35px;
+	width: 600px;
+}
+#tagline1	{
+	float: left;
+	margin: 11px 0 10px 0;
+}
+
+#tagline2	{
+	float: left;
+	margin: 15px 0 0 59px;
+}
+#navRightHome	{
+	float: right;
+	width: 600px;
+	height: 281px;
+	height: 281px !important;
+	margin-top: 11px;
+	background: url("../images/rightnav-bg.jpg") no-repeat;
+	color: #386385;
+}
+#navRightBoxOne	{
+	float: left;
+	width: 600px;
+}
+#navRightTitleOne	{
+	float: left;
+
+}
+#navRightTextOne	{
+	float: left;
+	width: 368px;
+	margin-left: 20px;
+	margin-top: 15px;
+}
+#navbarArrowOne	{
+	float: right;
+}
+#navRightBoxTwo	{
+	float: left;
+	width: 600px;
+}
+#navRightTitleTwo	{
+	float: left;
+
+}
+#navRightTextTwo	{
+	float: left;
+	width: 368px;
+	margin-left: 20px;
+	margin-top: 15px;
+}
+#navbarArrowOne	{
+	float: right;
+}
+#navRightBoxThree	{
+	float: left;
+	width: 600px;
+}
+#navRightTitleThree	{
+	float: left;
+
+}
+#navRightTextThree	{
+	float: left;
+	width: 368px;
+	margin-left: 20px;
+	margin-top: 15px;
+}
+#navbarArrowOne	{
+	float: right;
+}
+#navRightActionLog	{
+	float: right;
+	width: 600px;
+	height: 220px;
+	height: 220px !important;
+	margin-top: 11px;
+	background: url("../images/rightnavActionLog-bg.jpg") no-repeat;
+	color: #386385;
+}
+#loginTitle	{
+		margin-top: 15px;
+	
+}
+#loginForm	{
+	float: left;
+	margin: 25px 0 0 40px;
+	width:560px;
+}
+.loginForm	{
+	font-size: 12px;
+	/* font-weight: bold; */
+	color: #040405;
+}
+#loginArrow	{
+	float: right;
+	margin-top: -20px;
+}
+#forgetPswd	{
+	float: left;
+	margin: 25px 0 0 75px;
+	font-size: 12px;
+	color: #040405;
+}
+
+
+#footer-home	{
+	float: left;
+	/* position:absolute; */
+	/* bottom:0; */
+	margin: 400px 0 0 41px;
+	color: #386385;
+	font-size: 10px;
+	
+}
+#footer	{
+	float: left;
+	/* position:absolute; */
+	/* bottom:0; */
+	margin: 45px 0 0 41px;
+	color: #386385;
+	font-size: 10px;
+	
+}

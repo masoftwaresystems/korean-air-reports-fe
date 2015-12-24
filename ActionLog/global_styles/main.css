@@ -1,0 +1,252 @@
+.menu {
+  position:absolute;
+  display:none; 
+  background-color: 'white';
+  color: #133284;
+/*  z-index: 100; */
+  width: 110px;
+  border-style: solid;
+  border-color: #133284; 
+  border-width: 1px;
+  padding: 2px;
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: normal;
+  line-height: 14px;
+  overflow: auto;
+/*
+  scrollbar-face-color: #000000;
+  scrollbar-shadow-color: #800000;
+  scrollbar-highlight-color: #C00000;
+  scrollbar-3dlight-color: #000000;
+  scrollbar-darkshadow-color: #000000;
+  scrollbar-track-color: #000000;
+  scrollbar-arrow-color: #FF0000;
+*/
+}
+
+/*
+A:hover	{color: #cc0000;}	
+A:link  {color: #003b79;}
+A:visited {color: #660066;}
+*/
+.menu A {text-decoration: none; color: #133284; font-weight: bold;}
+.menu A:hover {text-decoration: none; color: #DF0031; font-weight: bold;}
+
+a.alpha { font-weight: normal; color: #133284; text-decoration: none; font: 8pt 'Veranda', 'Arial', 'helvetica'; }
+a.alpha:hover { color: #39b54a; text-decoration: underline;}
+a.alpha:link { color: #133284; background: transparent; }
+a.alpha:visited { color: #133284; }
+a.alpha:active { color: #133284; }
+
+a.links1 { font-weight: bold; color: #133284; text-decoration: underline; font: 13px 'Veranda', 'Arial', 'helvetica'; }
+a.links1:hover { color: #39b54a; text-decoration: underline;}
+a.links1:link { color: #133284; background: transparent; }
+a.links1:visited { color: #133284; }
+a.links1:active { color: #133284; }
+
+a.link { font-weight: normal; color: #133284; text-decoration: none; font: 8pt 'Veranda', 'Arial', 'helvetica'; }
+a.link:hover { font-weight: bold; color: #39b54a; text-decoration: underline; font: 15pt 'Veranda', 'Arial', 'helvetica';}
+a.link:link { color: #133284; background: transparent; }
+a.link:visited { color: #133284; }
+a.link:active { color: #133284; }
+
+a.link2 { font-weight: normal; color: #133284; text-decoration: none; font: 8pt 'Veranda', 'Arial', 'helvetica'; }
+a.link2:hover { font-weight: bold; color: #39b54a; text-decoration: underline; font: 8pt 'Veranda', 'Arial', 'helvetica';}
+a.link2:link { color: #133284; background: transparent; }
+a.link2:visited { color: #133284; }
+a.link2:active { color: #133284; }
+
+a.help { font-weight: bold; color: black; text-decoration: none; font: 9pt 'Veranda', 'Arial', 'helvetica'; }
+a.help:hover { font-weight: bold; color: black; text-decoration: underline; font: 9pt 'Veranda', 'Arial', 'helvetica';}
+a.help:link { font-weight: bold; color: black; background: transparent; }
+a.help:visited { font-weight: bold; color: black; }
+a.help:active { font-weight: bold; color: black; }
+
+a.link3 { font-weight: normal; color: #126f98; text-decoration: none; font: 12pt 'Veranda', 'Arial', 'helvetica'; }
+a.link3:hover { font-weight: bold; color: #126f98; text-decoration: underline; font: 12pt 'Veranda', 'Arial', 'helvetica';}
+a.link3:link { color: #126f98; background: transparent; }
+a.link3:visited { color: #126f98; }
+a.link3:active { color: #126f98; }
+
+
+.alphadot {color: #133284; font-size : 8pt; font-family: verdana,arial,helvetica;}
+
+.listItem {
+  text-decoration: none; 
+  font-size : 10px;
+  border-width: 1px;
+  border-color: #737579; 
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  width: 115px;
+  color: #800000;
+  cursor: 'default';
+}
+
+.statusBar {
+  text-decoration: none; 
+  font-size : 10px;
+  border-width: 1px;
+  border-color: #133284; 
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: #133284;
+}
+
+DIV.submenu A:hover FONT {color:#cc0000;}
+DIV.submenu A:link FONT {color:#003b79;}
+
+BODY {
+  background-properties: fixed; bg-style: fixed no-repeat
+}
+
+.coolBar {
+  background: #737579;
+  border-top: 1px solid buttonhighlight;
+  border-left: 1px solid buttonhighlight;
+  border-bottom: 1px solid buttonshadow;
+  border-right: 1px solid buttonshadow;
+  padding: 1px; font: menu;
+}
+
+.coolBar2 {
+  background: 'white';
+  border-top: 1px solid buttonhighlight;
+  border-left: 1px solid buttonhighlight;
+  border-bottom: 1px solid buttonshadow;
+  border-right: 1px solid buttonshadow;
+  padding: 1px; font: menu;
+}
+
+.coolButton {
+/*  border: 1px solid buttonface;
+  background: #737579;
+  border: 1px solid #737579; */
+  background: #800000;
+  border: 1px solid #800000;
+  padding: 1px;
+  text-align: center;
+  cursor: default;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  font-size : 10px;
+  color: 'white';
+  border-Left   = "1px solid buttonhighlight";
+  border-Right  = "1px solid buttonshadow";
+  border-Top    = "1px solid buttonhighlight";
+  border-Bottom = "1px solid buttonshadow";
+}
+
+.coolButton2 {
+/*  border: 1px solid buttonface; */
+  background: 'white';
+  border: 1px solid 'white';
+  padding: 1px;
+  text-align: center;
+  cursor: default;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  font-size : 10px;
+  color: #737579;
+  border-Left   = "1px solid buttonhighlight";
+  border-Right  = "1px solid buttonshadow";
+  border-Top    = "1px solid buttonhighlight";
+  border-Bottom = "1px solid buttonshadow";
+}
+
+.mainContent {
+/*  border-right: 2px solid #39b54a; */
+  border-left: 2px solid 'black';
+/*  border-bottom: 1px solid #39b54a; */
+  height: 318px;
+  width: 560px;
+}
+
+.mainContentQuote {
+/*  border-right: 2px solid #39b54a; */
+  border-left: 2px solid 'black';
+/*  border-bottom: 1px solid #39b54a; */
+  height: 318px;
+  width: 560px;
+}
+
+.tabfonts1 {
+  text-decoration: none; 
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: #133284;
+  width: 102px;
+}
+
+.fonts1 {
+  text-decoration: none; 
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: #133284;
+}
+
+.fonts2 {
+  text-decoration: none; 
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: normal;
+  color: #133284;
+}
+
+.fonts3 {
+  text-decoration: none; 
+  font-size : 12px;
+  font-family: verdana,arial,helvetica;
+  font-weight: normal;
+  color: #133284;
+}
+
+.fonts4 {
+  text-decoration: none; 
+  font-size : 12px;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: #133284;
+}
+
+.fonts5 {
+  text-decoration: none; 
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: red;
+}
+
+.fonts6 {
+  text-decoration: none; 
+  font-size : 12px;
+  font-family: verdana,arial,helvetica;
+  font-weight: normal;
+  color: black;
+}
+
+.links1 {
+  font-size : 10px;
+  font-family: verdana,arial,helvetica;
+  font-weight: normal;
+  color: blue;
+}
+
+.input1 {
+  text-decoration: none; 
+  font-size : 12px;
+  font-family: verdana,arial,helvetica;
+  font-weight: bold;
+  color: #800000;
+  border: 1 solid #000000;
+}
+
+.box1 {
+  border-style: solid;
+  border-color: #133284; 
+  border-width: 1px;
+}
+

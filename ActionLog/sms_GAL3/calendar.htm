@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>Calendar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/intranetStyles.css" type="text/css">
+<script language="javascript">
+<!--
+    var sMonths = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+    var selectedYear; var selectedMonth; var selectedDay;
+    var startYear; var startMonth; var startDay;
+    var endYear; var endMonth; var endDay;
+    var currentMonth; var currentYear;
+    var formName, elementName;
+    function setStartDate(s) {
+        d = new Date(s);
+        startYear = d.getFullYear();
+        //alert(startYear);
+        startMonth = d.getMonth();
+        startDay = d.getDate();
+    }
+    function setEndDate(s) {
+        d = new Date(s);
+        endYear = d.getFullYear();
+        endMonth = d.getMonth();
+        endDay = d.getDate();
+    }
+    function setFormElement(f, e, min, max) {
+        formName = f;
+        elementName = e;
+        o = eval("window.parent.document.forms['" +f +"']." +e);
+        var d;
+        if (o.value != "") {
+            var tmpdArr = o.value.split("/");
+            var tmpd = tmpdArr[1]+"/"+tmpdArr[0]+"/"+tmpdArr[2];
+            d = new Date(tmpd);
+            selectedDay = d.getDate();
+        } else {
+            d = new Date();
+            d.setDate(startDay);
+            d.setMonth(startMonth);
+            d.setYear(startYear);
+            selectedDay = "";
+        }
+        selectedMonth = d.getMonth();
+        selectedYear = d.getFullYear();
+        currentMonth = d.getMonth();
+        currentYear = d.getFullYear();
+        //alert(currentYear);
+    }
+    function moveNext() {
+        if (currentMonth +currentYear *12 < endMonth +endYear *12) {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            drawCalendar();
+        }
+    }
+    function movePrev() {
+        //if (currentMonth  +currentYear *12 > startMonth +startYear *12) {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            drawCalendar();
+        //}
+    }
+    function drawCalendar() {
+        document.all.title.innerHTML = sMonths[currentMonth] +" " +currentYear;
+        var d = new Date(currentYear, currentMonth, 1);
+        var initialPlace = d.getDay();
+        var day = 1;
+        var obj; var obj2;
+        var nod;
+        for (i = 29; d.getMonth() == currentMonth && i <= 32; i++)
+            d.setDate(i);
+        nod = i -2;
+        for (i = 0; i < 42; i++) {
+            obj = eval("document.all.s" +i);
+            obj2 = eval("document.all.ts" +i);
+            if (i >= initialPlace && i < initialPlace +nod) {
+                if (currentYear == selectedYear &&
+                    currentMonth == selectedMonth &&
+                    selectedDay == day) {
+                    obj2.className = "colorBackTableOutside";
+                } else
+                    obj2.className = "colorBackTableInside";
+                if (((currentYear < startYear) ||
+                     ((currentYear == startYear) && (currentMonth < startMonth)) ||
+                     ((currentYear == startYear) && (currentMonth == startMonth) && (day < startDay))) ||
+                    ((currentYear > endYear) ||
+                     ((currentYear == endYear) && (currentMonth > endMonth)) ||
+                     ((currentYear == endYear) && (currentMonth == endMonth) && (day > endDay)))) {
+                     //obj.innerHTML = '<span class="text3"><b>X</b></span>';
+                     obj.innerHTML = day;
+                } else {
+                    obj.innerHTML = day;
+                }
+                day++;
+            } else {
+                obj2.className = "colorBackTableInside";
+                obj.innerHTML = "";
+            }
+        }
+    }
+    function clickDate(o) {
+        if (o.innerHTML.indexOf("<") == -1) {
+            selectedDay = o.innerHTML;
+            selectedYear = currentYear;
+            selectedMonth = currentMonth;
+            o = eval("document.all.t" +o.id);
+            o.className = "colorBackTableOutside";
+            o = eval("window.parent.document.forms['" +formName +"']." +elementName);
+            //o.value = (selectedMonth +1) +"/" +selectedDay +"/" +selectedYear;
+            o.value = selectedDay+"/"+(selectedMonth +1)+"/"+selectedYear;
+			closeCalendar();
+        }
+    }
+    function closeCalendar() {
+		// set the focus to the last element visited
+		o = eval("window.parent.document.forms['" + window.parent.lastOpenedForm +"']." + window.parent.lastOpenedElement);
+		o.focus();
+
+		window.parent.document.all.CalFrame.style.display = "none";
+    }
+    function setLoadComplete() {
+        window.parent.calendarLoaded = true;
+    }
+-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#333333" onload="javascript:setLoadComplete()" leftmargin="3" bottommargin="3" rightmargin="3" marginwidth="3" topmargin="3"  marginheight="3">
+<table width="150" border="0" cellpadding="0" cellspacing="0" bgcolor="#537006">
+  <tr>
+    <td height="5"><img src="images/1ptrans.gif" width="10" height="5"></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <table width="140" border="0" cellpadding="0" cellspacing="0" bgcolor="#B9CD6A">
+        <tr>
+          <td width="20"><a href="javascript:movePrev()"><img src="http://www.atlanta.net/global_images/arrowLeft.gif" width="22" height="20" border="0"></a></td>
+          <td align="center"><span class="contentBold" id="title"></span></td>
+          <td width="20"><a href="javascript:moveNext()"><img src="http://www.atlanta.net/global_images/arrowRight.gif" width="22" height="20" border="0"></a></td>
+        </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="3"><img src="images/1ptrans.gif" width="10" height="3"></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="140" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr align="center" valign="middle">
+          <script>
+          <!--
+              days = new Array("s", "m", "t", "w", "t", "f", "s");
+              for (i = 0; i < days.length; i++) {
+                document.write('<td class="content" width="20"><span class="content">' +days[i] +'</span></td>');
+              }
+          -->
+          </script>
+        </tr>
+        <script>
+        <!--
+            k = 0;
+            for (i = 0; i < 6; i++) {
+                document.write('<tr align="center" valign="middle">');
+                for (j = 0; j < 7; j++) {
+                    document.write('<td id="ts' +k +'" width="20" height="20" ><span class="breadCrumbOrng"><span onclick="javascript:clickDate(this)" style="cursor: hand;" id="s' +k +'" class="content"></span></span></td>');
+                    k++;
+                }
+                document.write('</tr>');
+            }
+        -->
+        </script>
+        <tr align="center" valign="middle">
+          <td colspan="7" height="2"><img src="images/1ptrans.gif" width="10" height="2"></td>
+        </tr>
+        <tr align="right" valign="middle" >
+          <td height="20" colspan="7" class="content"><a href="javascript:closeCalendar()" class="breadCrumbOrng">close</a> &nbsp;</td>
+        </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="5"><img src="images/1ptrans.gif" width="10" height="5"></td>
+  </tr>
+</table>
+</body>
+</html>

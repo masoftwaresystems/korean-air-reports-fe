@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Korean Air | SCRS Report</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/screen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/responsive.css">
+    <style media="all" type="text/css">@import "css/hazard-form.css";</style>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+    <script>
+      var KA = KA || {Reports: {}};
+      KA.Reports.type = 'SCRS';
+    </script>
+    <script src="js/report.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="images/top-nav-logo.png" alt="Korean Air" width="188" height="36">
+    </header>
+    <!-- BEGIN_ITEMS -->
+    <div class="form_table">
+      <div class="clear"></div>
+      <div class="k full_width_header">
+      <div class="segment_header" style="width:auto;text-align:Center;"><h1>SCRS REPORT</h1></div>
+    </div>
+    <div id="new">
+      <div class="outside_container">
+        <div class="buttons_reverse">
+          <input type="submit" name="Submit" value="New SCRS Report" class="submit_button" id="create">
+        </div>
+      </div> 
+    </div>
+    <div id="report" class="form">
+      <p style="margin-left: 10px;">Note: All items with a red asterisk (<b class="redRequired" style="color:#FF0000">*</b>) are required.</p>
+      <div id="controlNumber">
+        <strong>Control Number:</strong>
+        <span id="controlNo">Please save</span>
+      </div>
+      <div id="createdBy" class="created">
+        <strong>Created By:</strong>
+        <span id="submitter"></span>
+        <span id="createdAt"></span>
+      </div>
+      <div class="clear"></div>
+      <div class="clear"></div>
+      <div class="clear"></div>
+      <div id="k14" class="k full_width">
+        <div class="full_width_space"><div>Submitter Information</div></div>
+      </div>
+      <div class="clear"></div>
+      <div id="k16" class="k">
+        <label class="question top_question" for="division">Division</label>
+        <input type="text" name="division" class="text_field" id="division" size="15" maxlength="255" value="">
+      </div>
+      <div id="k17" class="k">
+        <label class="question top_question" for="feedback">Feedback Request</label>
+        <input name="request" type="checkbox" value="true" id="request" />Yes
+        <input name="request" type="checkbox" value="false" />No
+      </div>
+      <div id="k8" class="k">
+        <label class="question top_question" for="emailAddress">Email Address (Personal Only)</label>
+        <input type="text" name="emailAddress" class="text_field" id="email" size="25" maxlength="255" value="">
+      </div>
+      <div class="clear"></div>
+      <div id="k18" class="k full_width">
+        <div class="full_width_space">
+          <div>Hazard Description</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="k19" class="k required">
+        <label class="question top_question" for="division">Fields<b class="redRequired" style="color:#FF0000">*</b></label>
+        <select id="fields" name="fields" class="drop_down">
+          <option selected="selected">Select One</option>
+          <option value="flight-operations">Flight Operation</option>
+          <option value="maintenance">Maintenance</option>
+          <option value="cabin">Cabin</option>  
+          <option value="pax">PAX</option>
+          <option value="cargo">Cargo</option>
+          <option value="catering">Catering</option>
+          <option value="aerospace">aerospace</option>
+          <option value="kas">KAS</option>
+          <option value="airport-authority">Airport Authority</option>
+          <option value="occ">OCC</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="clear"></div>
+        <div id="k20" class="k required">
+          <label class="question top_question" for="identification">Identification<b class="redRequired" style="color:#FF0000">*</b></label>
+          <input id="identification" class="small" data-format="yyyy-mm-dd" type="date" name="date" placeholder="yyyy-mm-dd"/>
+        </div>
+        <div class="clear"></div>
+        <div id="k21" class="k required">
+          <label class="question top_question" for="hazardLocation">Hazard Location<b class="redRequired" style="color:#FF0000">*</b></label>
+          <input id="location" type="text" name="place" class="text_field" id="place" size="25" maxlength="255" value="">
+        </div>
+        <div class="clear"></div>
+        <div id="k23" class="k required">
+          <label class="question top_question" for="title">Title<b class="redRequired" style="color:#FF0000">*</b></label>
+          <input id="title" type="text" name="subject" class="text_field" id="subject" size="25" maxlength="255" value="">
+        </div>
+        <div class="clear"></div>
+        <div id="k24" class="k required">
+          <label class="question top_question" for="description">Description&nbsp;<b class="redRequired" style="color:#FF0000">*</b></label>
+          <textarea id="description" name="description" class="text_field" id="description" rows="7" cols="100"></textarea>
+        </div>
+        <div class="clear"></div>
+        <div id="attachment">Attachment
+          <img src="images/icon-camera.png" width="20" height="20" align="absmiddle" /><img src="images/icon-envelope.png" width="17" height="17" hspace="5" align="absmiddle" /><br />
+          <span style="font-weight: normal;">this will be a way to upload attachments or photos</span>
+        </div>
+        <div class="clear"></div>
+        <div id="k25" class="k">
+          <label class="question top_question" for="feedback">Feedback</label>
+          <textarea id="feedback" name="description" class="text_field" id="feedback" rows="7" cols="100"></textarea>
+        </div>
+        <div class="clear"></div>
+        <div class="outside_container">
+          <div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button inactive" id="submit"></div>
+        </div> 
+        <div class="outside_container2">
+          <div class="buttons_reverse"><input type="submit" name="Save and Close" value="Save and Close" class="submit_button" id="close"></div>
+        </div>
+        <div class="outside_container2">
+          <div class="buttons_reverse"><input type="submit" name="Save" value="Save" class="submit_button" id="save"></div>
+        </div>
+      </div>
+      <!-- END_ITEMS -->
+    </div>
+    <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>launch</title>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="AC_RunActiveContent.js" language="javascript"></script>
+</head>
+<style type="text/css">
+<!--
+body {margin: 0px 0px 0px 0px; bgcolor="#ffffff"}
+-->
+</style>
+<body>
+<table align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+<!--url's used in the movie-->
+<!--text used in the movie-->
+<!-- saved from url=(0013)about:internet -->
+<script language="javascript">
+	adjustFlashDimensions();
+	function adjustFlashDimensions() {
+		//Flash metrics
+		var wF = 1024;
+		var hF = 768;
+		var aF = hF / wF;
+		//Browser metrics
+		var wB = 0;
+		var hB = 0;
+		if(typeof(window.innerWidth) == 'number'){
+			wB = window.innerWidth;
+			hB = window.innerHeight;
+		}else{
+			if(document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)){
+				wB = document.documentElement.clientWidth;
+				hB = document.documentElement.clientHeight;
+			}else if(document.body && (document.body.clientWidth || document.body.clientHeight)){
+				wB = document.body.clientWidth;
+				hB = document.body.clientHeight;
+			}
+		}
+		var aB = hB / wB;
+		var width = 0;
+		var height = 0;
+		if(aB < aF){
+			// browser is wider aspect than flash ... set height then width
+			height = Math.min(hF, hB);
+			width = height / aF;
+		}else{
+			// browser is narrower or same aspect as flash ... set width then height
+			width = Math.min(wF, wB);
+			height = width * aF;
+		}
+	
+		if (AC_FL_RunContent == 0) {
+			alert("This page requires AC_RunActiveContent.js.");
+		} else {
+			AC_FL_RunContent(
+				'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+				'width', width,
+				'height', height,
+				'src', 'launch',
+				'quality', 'high',
+				'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+				'align', 'middle',
+				'play', 'true',
+				'loop', 'true',
+				'scale', 'showall',
+				'wmode', 'window',
+				'devicefont', 'false',
+				'id', 'launch',
+				'bgcolor', '#ffffff',
+				'name', 'launch',
+				'menu', 'true',
+				'allowFullScreen', 'false',
+				'allowScriptAccess','sameDomain',
+				'movie', 'launch',
+				'salign', ''
+				); //end AC code
+		}
+	}
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="800" height="600" id="launch" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="launch.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="launch.swf" quality="high" bgcolor="#ffffff" width="800" height="600" name="launch" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+</noscript>
+</td>
+</tr>
+</table>
+</body>
+</html>
