@@ -1,9 +1,0 @@
-\section{admin\_saveFile2.asp}
-
-\verb|admin_saveFile2.asp| takes a file selected by a form process, and saves it into
-the server database.  It utilizies the ASPUpLoad class, which was registered as
-a server dll. As a result of using ASPUpLoad class, the request object for
-variables was destroyed, and query vars must be accessed within the context of
-the ASPUpLoad instance for this page/process.
-
-\lstinputlisting{src/admin_saveFile2.asp}
